@@ -1,0 +1,85 @@
+base:
+  model_arc: "Bert"
+  model_name: "bert-base-multilingual-cased"
+  seed: 42
+  tsvfile: 'train2.tsv'
+  train_args:
+    num_epochs: 7
+    train_batch_size: 64
+    eval_batch_size: 16
+    lr: 0.00005
+    weight_decay: 0.01
+    warmup_steps: 500
+    output_dir: './results/base'
+    save_steps: 500
+    save_total_limit: 3
+    logging_steps: 100
+    logging_dir: './logs/base'
+    evaluation_strategy: 'steps'
+    eval_steps: 100
+    load_best_model_at_end: True
+    label_smoothing_factor: 0.2
+    metric_for_best_model: 'f1'
+  val_args:
+    use_kfold: True
+    fold_break: True
+    num_k: 5
+    test_size: 0.2
+
+electra-small-v3:
+  model_arc: "Electra"
+  model_name: "monologg/koelectra-small-v3-discriminator"
+  seed: 42
+  tsvfile: 'train2.tsv'
+  train_args:
+    num_epochs: 30
+    train_batch_size: 64
+    eval_batch_size: 16
+    lr: 0.00005
+    weight_decay: 0.01
+    warmup_steps: 500
+    output_dir: './results/base'
+    save_steps: 500
+    save_total_limit: 3
+    logging_steps: 100
+    logging_dir: './logs/base'
+    evaluation_strategy: 'steps'
+    eval_steps: 100
+    load_best_model_at_end: True
+    label_smoothing_factor: 0.2
+    metric_for_best_model: 'f1'
+
+  val_args:
+    use_kfold: True
+    fold_break: True
+    num_k: 5
+    test_size: 0.2
+
+electra-base-v3:
+  model_arc: "Electra"
+  model_name: "monologg/koelectra-base-v3-discriminator"
+  seed: 42
+  tsvfile: 'train2.tsv'
+  train_args:
+    num_epochs: 20
+    train_batch_size: 64
+    eval_batch_size: 16
+    lr: 0.0005
+    weight_decay: 0.01
+    warmup_steps: 500
+    output_dir: './results/base'
+    save_steps: 500
+    save_total_limit: 3
+    logging_steps: 100
+    logging_dir: './logs/base'
+    evaluation_strategy: 'steps'
+    eval_steps: 100
+    load_best_model_at_end: True
+    label_smoothing_factor: 0.2
+    metric_for_best_model: 'f1'
+
+  val_args:
+    use_kfold: True
+    fold_break: True
+    num_k: 5
+    test_size: 0.2
