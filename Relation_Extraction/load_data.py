@@ -52,7 +52,8 @@ def load_data(dataset_dir):
 
 
 # bert input을 위한 tokenizing.
-# tip! 다양한 종류의 tokenizer와 special token들을 활용하는 것으로도 새로운 시도를 해볼 수 있습니다.
+# tip! 다양한 종류의 tokenizer와 special token들을 활용하는 것으로도
+# 새로운 시도를 해볼 수 있습니다.
 # baseline code에서는 2가지 부분을 활용했습니다.
 def tokenized_dataset(dataset, tokenizer):
     concat_entity = []
